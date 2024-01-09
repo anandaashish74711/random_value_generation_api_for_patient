@@ -2,7 +2,7 @@ const axios = require('axios');
 const _ = require('lodash');
 
 const apiEndpoint = 'http://localhost:4000/api/v1/observation';
-const userId = '6564c248b30f32776ed6270a';
+const userId = '659d3da859a99be651d75836';
 const numCalls = 10; // Adjust the number of calls as needed
 
 function generateRandomObservation() {
@@ -12,6 +12,7 @@ function generateRandomObservation() {
 
   return {
     UserId: userId,
+    visitcount:2,
     observationData: {
       timestamp: timestamp.toISOString(),
       messages: _.random(1, 99),
@@ -43,5 +44,5 @@ const makeApiCall = () => {
     });
 };
 
-const interval = 10; // Set the interval to call the API function every 5 seconds
+const interval = 5000; // Set the interval to call the API function every 5 seconds
 setInterval(makeApiCall, interval);
